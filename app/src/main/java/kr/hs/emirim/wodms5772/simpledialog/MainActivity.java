@@ -40,7 +40,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             @Override
             public void onClick(DialogInterface dialog, int which, boolean isChecked) {
                 String result="";
-                but.setText(items[which]);
+                for(int i=0;i<items.length;i++){
+                    if(checkArr[i]==true){
+                        result+=items[i]+" ";
+                    }
+                }
+                but.setText(result);
             }
         });
 
