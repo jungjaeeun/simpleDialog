@@ -10,6 +10,7 @@ import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
     String[] items=new String[]{"젤리빈","킷켓","롤리팝",};
+    boolean[] checkArr=new boolean[]{false,true,false};
     Button but;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,16 +36,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             }
         });*/
 
-        dialog.setSingleChoiceItems(items, 0, new DialogInterface.OnClickListener() {
-            /**
-             * This method will be invoked when a button in the dialog is clicked.
-             *
-             * @param dialog The dialog that received the click.
-             * @param which  The button that was clicked (e.g.
-             *               {@link DialogInterface#BUTTON1}) or the position
-             */
+        dialog.setMultiChoiceItems(items, checkArr, new DialogInterface.OnMultiChoiceClickListener() {
             @Override
-            public void onClick(DialogInterface dialog, int which) {
+            public void onClick(DialogInterface dialog, int which, boolean isChecked) {
+                String result="";
                 but.setText(items[which]);
             }
         });
