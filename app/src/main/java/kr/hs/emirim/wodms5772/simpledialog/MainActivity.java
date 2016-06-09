@@ -28,12 +28,27 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void onClick(View v) {
         AlertDialog.Builder dialog=new AlertDialog.Builder(this);
         dialog.setTitle("First Dialog");
-        dialog.setItems(items, new DialogInterface.OnClickListener() {
+        /*dialog.setItems(items, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) { //which가 배열의 index와 ==
                 but.setText(items[which]);
             }
+        });*/
+
+        dialog.setSingleChoiceItems(items, 0, new DialogInterface.OnClickListener() {
+            /**
+             * This method will be invoked when a button in the dialog is clicked.
+             *
+             * @param dialog The dialog that received the click.
+             * @param which  The button that was clicked (e.g.
+             *               {@link DialogInterface#BUTTON1}) or the position
+             */
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                but.setText(items[which]);
+            }
         });
+
         dialog.setIcon(R.drawable.first_icon);
         dialog.setPositiveButton("OK", new DialogInterface.OnClickListener() {
             @Override
